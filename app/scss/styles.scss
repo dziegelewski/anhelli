@@ -1,31 +1,9 @@
-// @import 'partials/reset';
-@import 'partials/normalize';
+@import 'partials/reset';
+// @import 'partials/normalize';
 
-body {
-	background-color: #B2B2B2; 
-	font-size: 2em; 
-	
-}
-
-div {
-	$short: 70s; 
-	border-radius: 20px;
-	display: flex;
-	justify-content: space-around;
-	transition: height $short;
-	animation: pulse 5s infinite;
-}
-
-p {
-	color: bronze;
-}
-
-@keyframes pulse {
-	0% {
-		width: 10px;
-	}
-	100% {
-		width: 20px;
-	}
-
+.hero {
+	width: 30px;
+	height: 80px;
+	border: 2px solid red;
+	position: absolute;
 }
