@@ -8,19 +8,23 @@ var Hero = {
 	y: 0,
 	walk: setInterval(function () {
 		if (Hero.iswalking) {	
-			console.log('walk');
-			Hero.x += Hero.direction * Hero.speed;
-			console.log(Hero.x);
-			Hero.avatar.style.right = Hero.x + 'px';
+			Hero.x -= Hero.direction * Hero.speed;
+			Hero.avatar.style.left = Hero.x + 'px';
 		}
-	}, 60)
+	}, 30),
+	jump: function() {
+		Hero.avatar.classList.add('jump');
+		Hero.avatar.addEventListener("animationiteration", function () {
+			Hero.avatar.classList = "";
+		});
+	}
 };
 
 Hero.avatar = (function placeHero(position) {
 	var hero = document.createElement('div');
 	hero.id = 'hero';
 	hero.classList = 'hero';
-	document.body.appendChild(hero);
+	document.getElementById('start').appendChild(hero);
 	return hero;
 })();
 
@@ -33,7 +37,7 @@ document.addEventListener('keydown', function (e) {
 		Hero.iswalking = true;
 		Hero.direction = -1;
 	} else if (e.which === 32) {
-		Hero.isShooting = true;
+		Hero.jump()
 	}
 });
 
@@ -42,8 +46,6 @@ document.addEventListener('keyup', function (e) {
 		Hero.iswalking = false;
 	} else if (e.which === 39 && Hero.direction === -1) {
 		Hero.iswalking = false;
-	} else if (e.which === 32) {
-		Hero.isShooting = false;
 	}
 });
 
