@@ -5,7 +5,7 @@ var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var runSequence = require('run-sequence');
-var minifyhtml = require('gulp-htmlmin');
+// var minifyhtml = require('gulp-htmlmin');
 var plumber = require('gulp-plumber')
 
 // var imagemin = require('gulp-imagemin');
@@ -34,12 +34,12 @@ gulp.task('htmlchange', function() {
 	return gulp.src('app/*.html')
 	.pipe(plumber())
 	.pipe(useref())
-	.pipe(minifyhtml({
-		empty: true,
-		removeComments: true,
-		collapseWhitespace: true,
-		preserveLineBreaks: true,
-	}))
+	// .pipe(minifyhtml({
+	// 	empty: true,
+	// 	removeComments: true,
+	// 	collapseWhitespace: true,
+	// 	preserveLineBreaks: true,
+	// }))
 	.pipe(gulp.dest('dist'))
 });
 
@@ -49,7 +49,7 @@ gulp.task('jschange', function () {
 	.pipe(babel({
 		presets: ['es2015']
 	}))
-	.pipe(uglify())
+	// .pipe(uglify())
 
 	.pipe(gulp.dest('dist/js'))
 });

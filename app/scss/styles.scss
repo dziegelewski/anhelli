@@ -1,2 +1,13 @@
 @import 'partials/reset';
 // @import 'partials/normalize';
+
+body {
+	background-color: black;
+}
+
+canvas {
+	border-radius: 5px;
+	display: block;
+	margin: 3% auto;
+	background-color: lightslategray;
+}
